@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lukashevich_Test</title>
+    <script>
+        const sayHi = (value) => {
+            if (value > 7) {
+                alert('Привет')
+            } else if(value<=0){
+                alert('Введите положительное число')
+            } else if (value > 0 && value <=7){
+                alert ('Введите число побольше')
+            }
+            document.getElementById('sayHiInput').value = ""
+        }
+        
+            const checkName = (value) => {
+            if (value.toLowerCase() === 'вячеслав') {
+               alert('Привет, Вячеслав');
+            } else
+            alert('Нет такого имени');
+            document.getElementById('checkNameInput').value = ""
+        }
+
+        const checkArray = (array) => {
+            alert('Числа кратные 3: '+array.filter((item) => item % 3 === 0).toString())
+            document.getElementById('checkArrayInput').value = ""
+        }
+
+        const generArray = (gArray) => {
+        var gArray = [];
+            for ( var i = 0; i <=10; i++ )   {
+                gArray.push(Math.round(Math.random() * 100 ));
+        }    
+        document.getElementById('checkArrayInput').value = gArray.toString()
+    }   
+    </script>
+
+<style>
+.gradient-button {
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(7, 8, 4);
+  padding: 10px 35px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.gradient-button:hover {
+  background-position: right center;
+}
+
+.s1{
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+</style>
+
+</head>
+<body style="background-color: rgb(233, 227, 203); gap: 40px; display: flex; flex-direction: column">
+    <div>
+        <span class="s1"> Введите любое число: </span>
+        <input style="font-size: 13pt" id="sayHiInput">
+        <input type="button" class="gradient-button" onclick="sayHi(document.getElementById('sayHiInput').value);" name="sayHi" value="Check It" />
+    </div>
+
+    <div>
+        <span class="s1">  Введите своё имя: </span>
+        <input style="font-size: 13pt" id="checkNameInput">
+        <input type="button" class="gradient-button" onclick="checkName(document.getElementById('checkNameInput').value);" name="checkName" value="Check Name" />
+    </div>
+
+    <div>
+        <span class="s1">  Введите или сгенерируйте массив : </span>
+        <input style="font-size: 13pt; width: 300px;" id="checkArrayInput">
+        <input type="button" class="gradient-button" onclick="generArray();" name="generArray" value="Generate" />
+        <input type="button" class="gradient-button" onclick="checkArray(document.getElementById('checkArrayInput').value.replace(/\s/g, '').split(','));" name="checkArray" value="Check Array" />
+    </div>
+</body>
+</html>
